@@ -42,6 +42,7 @@ export class GoogleLoginProvider extends BaseLoginProvider {
                     let profile = this.auth2.currentUser.get().getBasicProfile();
                     let token = this.auth2.currentUser.get().getAuthResponse(true).access_token;
                     let backendToken = this.auth2.currentUser.get().getAuthResponse(true).id_token;
+                    let refreshToken = this.auth2.currentUser.get().getAuthResponse(true).refresh_token;
 
                     user.id = profile.getId();
                     user.name = profile.getName();
@@ -51,6 +52,7 @@ export class GoogleLoginProvider extends BaseLoginProvider {
                     user.lastName = profile.getFamilyName();
                     user.authToken = token;
                     user.idToken = backendToken;
+                    user.refreshToken = refreshToken;
                     resolve(user);
                 } else {
                     reject('No user is currently logged in.');
@@ -70,6 +72,8 @@ export class GoogleLoginProvider extends BaseLoginProvider {
                     let profile = this.auth2.currentUser.get().getBasicProfile();
                     let token = this.auth2.currentUser.get().getAuthResponse(true).access_token;
                     let backendToken = this.auth2.currentUser.get().getAuthResponse(true).id_token;
+                    let refreshToken = this.auth2.currentUser.get().getAuthResponse(true).refresh_token;
+
 
                     user.id = profile.getId();
                     user.name = profile.getName();
@@ -79,6 +83,7 @@ export class GoogleLoginProvider extends BaseLoginProvider {
                     user.lastName = profile.getFamilyName();
                     user.authToken = token;
                     user.idToken = backendToken;
+                    user.refreshToken = refreshToken;
 
                     if (response && response.code) {
                         user.authorizationCode = response.code;
