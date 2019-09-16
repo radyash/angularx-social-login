@@ -145,8 +145,10 @@ var GoogleLoginProvider = /** @class */ (function (_super) {
             function () {
                 /** @type {?} */
                 var offlineAccess = (opt && opt.offline_access) || (_this.opt && _this.opt.offline_access);
+                //let promise = !offlineAccess ? this.auth2.signIn(opt) : this.auth2.grantOfflineAccess(opt);
+                console.log('OPT  ', opt);
                 /** @type {?} */
-                var promise = !offlineAccess ? _this.auth2.signIn(opt) : _this.auth2.grantOfflineAccess(opt);
+                var promise = _this.auth2.grantOfflineAccess(opt);
                 promise.then((/**
                  * @param {?} response
                  * @return {?}

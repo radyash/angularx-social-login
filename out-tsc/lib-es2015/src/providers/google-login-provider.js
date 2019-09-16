@@ -109,8 +109,10 @@ export class GoogleLoginProvider extends BaseLoginProvider {
             () => {
                 /** @type {?} */
                 const offlineAccess = (opt && opt.offline_access) || (this.opt && this.opt.offline_access);
+                //let promise = !offlineAccess ? this.auth2.signIn(opt) : this.auth2.grantOfflineAccess(opt);
+                console.log('OPT  ', opt);
                 /** @type {?} */
-                let promise = !offlineAccess ? this.auth2.signIn(opt) : this.auth2.grantOfflineAccess(opt);
+                let promise = this.auth2.grantOfflineAccess(opt);
                 promise.then((/**
                  * @param {?} response
                  * @return {?}

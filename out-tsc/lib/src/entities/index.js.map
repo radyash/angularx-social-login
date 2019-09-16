@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["index.ts"],"names":[],"mappings":";;AACA,+BAAoC;AAA3B,4BAAA,UAAU,CAAA","sourcesContent":["export { LoginProvider } from './login-provider';\nexport { SocialUser } from './user';\n"]}
